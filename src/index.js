@@ -25,8 +25,8 @@ const POW_TARGET = 2;
     // Generate keypair
     const keyPair = await web3.shh.newKeyPair();
 
-    // TODO: Obtain public key
-    const pubKey = "";
+    // Obtain public key
+    const pubKey = await web3.shh.getPublicKey(keyPair);
 
     ui.setUserPublicKey(pubKey);
     
