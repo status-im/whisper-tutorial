@@ -30,8 +30,8 @@ const POW_TARGET = 2;
 
     ui.setUserPublicKey(pubKey);
     
-    // TODO: Generate a symmetric key
-    const channelSymKey = ""; 
+    // Generate a symmetric key
+    const channelSymKey = await web3.shh.generateSymKeyFromPassword(DEFAULT_CHANNEL);
 
     const channelTopic = DEFAULT_TOPIC;
 
