@@ -30,7 +30,7 @@ const POW_TARGET = 2;
 
     ui.events.on('cmd', async (message) => {
         try {
-            if(cmd.startsWith('/msg')){
+            if(message.startsWith('/msg')){
                 if(PRIVATE_MESSAGE_REGEX.test(message)){
                     const msgParts = message.match(PRIVATE_MESSAGE_REGEX);
                     const contactCode = msgParts[1];
