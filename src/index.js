@@ -39,7 +39,7 @@ const POW_TARGET = 2;
                     // TODO: Send private message
 
                     // Since it is a private message, we need to display it in the UI
-                    ui.addMessage(pubKey, messageContent);
+                    ui.addMessage(pubKey, messageContent, true);
                 }
             } else {
                 // TODO: Send a public message
