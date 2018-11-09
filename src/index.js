@@ -49,8 +49,16 @@ const POW_TARGET = 2;
                     ui.addMessage(pubKey, messageContent);
                 }
             } else {
-                // TODO: Send a public message
-               
+                // Send a public message
+                web3.shh.post({
+                    symKeyID: channelSymKey,
+                    sig: keyPair,
+                    ttl: TTL,
+                    topic: channelTopic,
+                    payload: web3.utils.fromAscii(message),
+                    powTime: POW_TIME,
+                    powTarget: POW_TARGET
+                });
             }
         } catch(err) {
             console.log(err);
