@@ -50,7 +50,7 @@ sudo apt-get install ethereum
 To use Whisper, you need a running Geth node. You can execute the following command to start this node with the minimum required options
 
 ```
-geth --testnet --syncmode=light --ws --wsorigins=mychat --shh --wsapi=web3,shh
+geth --testnet --syncmode=light --ws --wsorigins=mychat --shh --wsapi=web3,shh,net
 ```
 
 ## Setup and explore!
@@ -84,6 +84,15 @@ try {
 ```
 
 The CLI will attempt to connect to our node. It uses the origin `mychat`, specified in the `--wsorigins` flag of the `geth` command. If it cannot connect, the chat window closes.
+
+
+#### `// TODO: Generate keypair`
+We need to generate a keypair that is going to be used to sign the messages we send and also to be able to receive private messages
+
+```
+// Generate keypair
+const keyPair = await web3.shh.newKeyPair();
+```
 
 #### `// TODO: Generate a symmetric key`
 Public group messages are messages that are not addressed to anyone in particular and are received by anyone that's listening in a specific channel. In our chat application, our channel is represented by a shared symmetric key.
