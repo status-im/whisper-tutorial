@@ -54,7 +54,7 @@ const POW_TARGET = 2;
                         powTarget: POW_TARGET
                     });
                     // Since it is a private message, we need to display it in the UI
-                    ui.addMessage(pubKey, messageContent);
+                    ui.addMessage(pubKey, messageContent, true);
                 }
             } else {
                 // Send a public message
