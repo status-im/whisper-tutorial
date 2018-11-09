@@ -86,6 +86,15 @@ const POW_TARGET = 2;
         ui.addError("Couldn't decode message: " + err.message);
     });
 
-    // TODO: Subscribe to private messages
+    // Subscribe to private messages
+    web3.shh.subscribe("messages", {
+        minPow: POW_TARGET,
+        privateKeyID: keyPair,
+        topics: [DEFAULT_TOPIC]
+    }).on('data', (data) => {
+        ui.addMessage(data.sig, web3.utils.toAscii(data.payload), true);
+    }).on('error', (err) => {
+        ui.addError("Couldn't decode message: " + err.message);
+    });
    
 })();
