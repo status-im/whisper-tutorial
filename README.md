@@ -50,7 +50,7 @@ sudo apt-get install ethereum
 To use Whisper, you need a running Geth node. You can execute the following command to start this node with the minimum required options
 
 ```
-geth --testnet --syncmode=light --ws --wsorigins=mychat --shh --wsapi=web3,shh
+geth --testnet --syncmode=light --ws --wsorigins=mychat --shh --wsapi=web3,shh,net
 ```
 
 ## Setup and explore!

@@ -66,7 +66,17 @@ const POW_TARGET = 2;
         }
     });
 
-    // TODO: Subscribe to public chat messages
+    // Subscribe to public chat messages
+    web3.shh.subscribe("messages", {
+        minPow: POW_TARGET,
+        symKeyID: channelSymKey,
+        topics: [DEFAULT_TOPIC]
+    }).on('data', (data) => {
+        // Display message in the UI
+        ui.addMessage(data.sig, web3.utils.toAscii(data.payload));
+    }).on('error', (err) => {
+        ui.addError("Couldn't decode message: " + err.message);
+    });
 
     // TODO: Subscribe to private messages
    
