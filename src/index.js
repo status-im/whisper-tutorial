@@ -11,7 +11,14 @@ const TTL = 20;
 const POW_TARGET = 2;
 
 (async () => {
-    // TODO: Web3 connection
+    // Web3 connection
+    const web3 = new Web3();
+    try {
+        web3.setProvider(new Web3.providers.WebsocketProvider("ws://localhost:8546", {headers: {Origin: "mychat"}}));
+        await web3.eth.net.isListening();
+    } catch(err) {
+        process.exit();
+    }
 
     const ui = new UI();
     
@@ -30,7 +37,7 @@ const POW_TARGET = 2;
 
     ui.events.on('cmd', async (message) => {
         try {
-            if(cmd.startsWith('/msg')){
+            if(message.startsWith('/msg')){
                 if(PRIVATE_MESSAGE_REGEX.test(message)){
                     const msgParts = message.match(PRIVATE_MESSAGE_REGEX);
                     const contactCode = msgParts[1];
