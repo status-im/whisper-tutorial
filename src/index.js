@@ -22,8 +22,8 @@ const POW_TARGET = 2;
 
     const ui = new UI();
     
-    // TODO: Generate keypair
-    const keyPair = ""; 
+    // Generate keypair
+    const keyPair = await web3.shh.newKeyPair();
 
     // TODO: Obtain public key
     const pubKey = "";
