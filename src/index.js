@@ -43,8 +43,16 @@ const POW_TARGET = 2;
                     const contactCode = msgParts[1];
                     const messageContent = msgParts[2];
 
-                    // TODO: Send private message
-
+                    // Send private message
+                    web3.shh.post({
+                        pubKey: contactCode,
+                        sig: keyPair,
+                        ttl: TTL,
+                        topic: channelTopic,
+                        payload: web3.utils.fromAscii(messageContent),
+                        powTime: POW_TIME,
+                        powTarget: POW_TARGET
+                    });
                     // Since it is a private message, we need to display it in the UI
                     ui.addMessage(pubKey, messageContent);
                 }
