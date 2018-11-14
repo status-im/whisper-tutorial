@@ -1,4 +1,4 @@
-Getting started with Whisper and EmbarkJS
+Getting started with Whisper
 ===
 
 ## Intro
