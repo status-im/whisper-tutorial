@@ -15,18 +15,6 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | 
 nvm install --lts
 nvm use lts
 ```
-#### IPFS 0.4.17+
-```
-ipfs version
-> 0.4.17+
-```
-[IPFS installation instructions](https://ipfs.io/docs/install/#installing-from-a-prebuilt-package), macOS/Linux command provided for you below:
-```
-tar xvfz go-ipfs.tar.gz
-cd go-ipfs
-./install.sh
-ipfs init
-```
 
 #### Go-ethereum 1.8.17+
 ```
