@@ -1,4 +1,4 @@
-Getting started with Whisper and EmbarkJS
+Getting started with Whisper
 ===
 
 ## Intro
@@ -20,18 +20,6 @@ If you need to update Node, please [install `nvm`](https://github.com/creationix
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 nvm install --lts
 nvm use lts
-```
-#### IPFS 0.4.17+
-```
-ipfs version
-> 0.4.17+
-```
-Download the appropriate package [from here](https://docs.ipfs.io/introduction/install/. Then you can follow the macOS/Linux instructions provided for you below (you can use the exact same steps if you just want to update `ipfs`):
-```
-tar xvfz go-ipfs.tar.gz
-cd go-ipfs
-./install.sh
-ipfs init
 ```
 
 #### Go-ethereum 1.8.17+
