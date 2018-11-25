@@ -94,7 +94,7 @@ Calling web3 and telling it to set its `provider` to our running geth instance (
 
 
 #### `// TODO: Generate keypair`
-We need to generate a keypair that is going to be used to sign the messages we send. We will use the same keypair to receive and decrypt private messages. This is as simple as calling a specific function that is exposed through the `shh` API:
+We need to generate a keypair that is going to be used to sign the messages we send. We will use the same keypair to receive and decrypt private messages. This is as simple as calling a function that is exposed through the `shh` API:
 
 ```
 // Generate keypair
@@ -102,7 +102,7 @@ const keyPair = await web3.shh.newKeyPair();
 ```
 
 #### `// TODO: Generate a symmetric key`
-"Public" messages are messages encrypted only by the whisper topic: i.e. they are not addressed to anyone in particular and are received by anyone that's listening in a specific channel. In our chat application, our channel is represented by a shared symmetric key whose "password" is just the channel we'll be using and listening to:
+"Public" messages are messages encrypted by using a symmetric key and topic. They are not addressed to anyone in particular and are received by anyone that's listening in a specific channel. In our chat application, our channel is represented by a shared symmetric key whose "password" is just the channel we'll be using and listening to:
 
 ```
 // Generate a symmetric key
@@ -110,7 +110,7 @@ const channelSymKey = await web3.shh.generateSymKeyFromPassword(DEFAULT_CHANNEL)
 ```
 
 #### `// TODO: Obtain public key`
-We need to generate for ourselves the public key so that we can identify messages that are sent over our channel. This is done with the following code:
+We need to generate for ourselves the public key so that we can identify ourselves as author messages that are sent and received over our channel. This is done with the following code:
 
 ```
 // Obtain public key
@@ -181,7 +181,7 @@ web3.shh.post({
 > In Ubuntu, you need to press `Shift` and drag-click the mouse to select the contact's public key
 
 #### `// TODO: Subscribe to private messages`
-Similar to receiving messages from the public channel, we'll need to create a subscription in order to receive private messages. To do this for private messages, we use as a `privateKeyID` our `keyPair` in order for the subscription to receive messages that were sent to our public key.
+Similar to receiving messages from the public channel, we'll need to create a subscription to receive private messages, using as a `privateKeyID` our `keyPair` in order for the subscription to receive messages that were sent to our public key.
 
 ```
 // Subscribe to private messages
